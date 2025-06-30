@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FullCalendar Custom Theme */
+.fc-theme-custom {
+  --fc-border-color: theme('colors.gray.200');
+  --fc-button-bg-color: theme('colors.blue.600');
+  --fc-button-border-color: theme('colors.blue.600');
+  --fc-button-hover-bg-color: theme('colors.blue.700');
+  --fc-button-hover-border-color: theme('colors.blue.700');
+  --fc-button-active-bg-color: theme('colors.blue.800');
+  --fc-button-active-border-color: theme('colors.blue.800');
+  --fc-event-border-color: transparent;
+  --fc-event-border-radius: 0.375rem;
+  --fc-event-padding: 0.25rem;
+}
+
+.dark .fc-theme-custom {
+  --fc-border-color: theme('colors.gray.700');
+  --fc-button-text-color: theme('colors.white');
+  --fc-button-bg-color: theme('colors.blue.600');
+  --fc-button-border-color: theme('colors.blue.600');
+  --fc-button-hover-bg-color: theme('colors.blue.700');
+  --fc-button-hover-border-color: theme('colors.blue.700');
+  --fc-button-active-bg-color: theme('colors.blue.800');
+  --fc-button-active-border-color: theme('colors.blue.800');
+  background-color: theme('colors.gray.800');
+  color: theme('colors.white');
+}
+
+/* Calendar Header */
+.fc .fc-toolbar {
+  @apply flex-wrap gap-4 mb-6;
+}
+
+.fc .fc-toolbar-title {
+  @apply text-xl md:text-2xl font-semibold text-gray-900 dark:text-white;
+}
+
+/* Calendar Buttons */
+.fc .fc-button-group {
+    @apply rounded-lg overflow-hidden shadow-sm;
+  }
+  
+  .fc .fc-button {
+    @apply text-sm font-medium px-3 md:px-4 py-2 transition-colors border-0 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+  }
+
+/* Calendar Grid */
+.fc .fc-scrollgrid {
+  @apply rounded-lg overflow-hidden border-separate border-spacing-0;
+}
+
+.fc th {
+  @apply py-3 px-2 md:px-4 bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-700;
+}
+
+.fc .fc-daygrid-day-frame {
+  @apply min-h-[100px] md:min-h-[120px];
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-col-header-cell-cushion {
+  @apply text-sm md:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors;
+}
+
+/* Today Highlight */
+.fc .fc-daygrid-day.fc-day-today {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Events */
+.fc-event {
+  @apply cursor-pointer transition-all duration-200 hover:opacity-90 shadow-sm;
+}
+
+.fc-event-main {
+  @apply p-1 md:p-2;
+}
+
+.fc-event-title {
+  @apply text-xs md:text-sm font-medium line-clamp-2;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .fc .fc-toolbar {
+    @apply flex-col items-stretch gap-3;
+  }
+  
+  .fc .fc-toolbar-title {
+    @apply text-center;
+  }
+  
+  .fc .fc-button-group {
+    @apply flex justify-center;
+  }
+  
+  .fc .fc-view-harness {
+    @apply min-h-[400px];
+  }
+  /* Keep prev/next buttons left-aligned and prevent wrapping */
+  .fc .fc-toolbar-chunk:first-child {
+    @apply flex flex-nowrap items-center justify-between;
+  }
+
+  .fc .fc-toolbar-chunk:first-child .fc-button-group {
+    @apply flex-none;
+  }
+
+  .fc .fc-toolbar-chunk:first-child .fc-today-button {
+    @apply ml-auto;
+  }
+
+  /* Center view selection buttons */
+  .fc .fc-toolbar-chunk:last-child .fc-button-group {
+    @apply flex justify-center;
+  }
+  
+  .fc .fc-view-harness {
+    @apply min-h-[400px];
+  }
+}
+
+
+
+/* Hover Effects */
+.fc td.fc-day:hover {
+  @apply bg-gray-50 dark:bg-gray-700/30 transition-colors;
+}
+
+/* Event Colors */
+.fc-event.event-solo {
+  @apply bg-blue-500 hover:bg-blue-600;
+}
+
+.fc-event.event-team {
+  @apply bg-green-500 hover:bg-green-600;
+}
+
+.fc-event.event-special {
+  @apply bg-red-500 hover:bg-red-600;
+}
+
+/* Modal Responsive Design */
+.event-modal {
+  @apply max-h-[90vh] overflow-y-auto;
+}
+
+/* Loading State */
+.fc-loading {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+/* Landing Page Animations */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-on-scroll.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Video overlay */
+.video-overlay {
+  background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+}
+
+/* Form focus states */
+.form-input:focus {
+  @apply ring-2 ring-blue-500 ring-opacity-50 border-blue-500;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-blue-700 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-white text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 transition-all duration-200 hover:bg-gray-50 hover:shadow-md;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+}
